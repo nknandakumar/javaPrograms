@@ -245,13 +245,108 @@ void main(){
     },
     {
       id: 8,
-      name: "Program 8",
-      code: ``
+      name: " INSERTION P8",
+      code: `
+#include <stdio.h>
+#include<conio.h>
+
+void insertion(int n, int a[]) {
+    int i, j, item;
+    for (i = 1; i < n; i++) {
+	item = a[i];
+	j = i - 1;
+	while (j >= 0 && item < a[j]) {
+	    a[j + 1] = a[j];
+	    j = j - 1;
+	}
+	a[j + 1] = item;
+    }
+}
+
+void  main() {
+    int i, n, a[20];
+    clrscr();
+    printf("Enter the size of array: \n");
+    scanf("%d", &n);
+    printf("Enter %d elements: \n", n);
+    for (i = 0; i < n; i++) {
+	scanf("%d", &a[i]);
+    }
+    insertion(n, a);
+    printf("Sorted elements are: \n");
+    for (i = 0; i < n; i++) {
+	printf("%d\n", a[i]);
+    }
+    getch();
+
+}
+
+      `
     },
     {
       id: 9,
-      name: "Program 9",
-      code: ``
+      name: "MERGE_SORT PB-P1",
+      code: `
+#include <stdio.h>
+
+void simple_sort(int a[], int low, int mid, int high) {
+    int i = low, j = mid + 1, k = low;
+    int c[100];
+
+    // Merge the two halves
+    while (i <= mid && j <= high) {
+        if (a[i] < a[j]) {
+            c[k++] = a[i++];
+        } else {
+            c[k++] = a[j++];
+        }
+    }
+
+    // Copy remaining elements from left half
+    while (i <= mid) {
+        c[k++] = a[i++];
+    }
+
+    // Copy remaining elements from right half
+    while (j <= high) {
+        c[k++] = a[j++];
+    }
+
+    // Copy sorted subarray into original array
+    for (i = low; i <= high; i++) {
+        a[i] = c[i];
+    }
+}
+
+void merge_sort(int a[], int low, int high) {
+    int mid;
+    if (low < high) {
+        mid = (low + high) / 2;
+        merge_sort(a, low, mid);
+        merge_sort(a, mid + 1, high);
+        simple_sort(a, low, mid, high);
+    }
+}
+
+int main() {
+    int i, n, a[30];
+    clrscr();
+    printf("Enter the size of array: ");
+    scanf("%d", &n);
+    printf("Enter the values:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    merge_sort(a, 0, n - 1);
+    printf("Sorted Elements:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d\n", a[i]);
+    }
+    getch();
+    return 0;
+}
+
+      `
     },
     {
       id: 10,

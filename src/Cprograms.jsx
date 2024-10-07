@@ -12,22 +12,19 @@ const CProgramList = () => {
 
   return (
     <div className="h-screen bg-gray-900 text-white p-6 flex flex-col">
-      <h1 className="text-3xl font-bold mb-6">Turbo C++ Programs</h1>
+      <h1 className="text-3xl font-bold mb-6">c-DS</h1>
       <div className="flex flex-wrap justify-between">
         {Cprograms.map((program) => (
-          <div key={program.id} className="bg-gray-800 rounded-lg shadow-lg p-4 m-2 w-1/4">
+          <div
+            key={program.id}
+            className="bg-gray-800 rounded-lg shadow-lg p-4 m-2 w-1/4 cursor-pointer"
+            onClick={() => handleCopy(program)} // Handle click to copy
+          >
             <div className="flex justify-between items-center">
               <h3 className="text-xl font-mono">{program.name}</h3>
-              <button
-                className={`px-4 py-2 rounded-lg transition duration-200 ${
-                  copiedProgramId === program.id
-                    ? "bg-green-600 hover:bg-green-700"
-                    : "bg-blue-600 hover:bg-blue-700"
-                }`}
-                onClick={() => handleCopy(program)}
-              >
-                {copiedProgramId === program.id ? "Copied!" : "Copy"}
-              </button>
+              {copiedProgramId === program.id && (
+                <span className="text-red-400 ml-2">Error to open!❌ </span> // Show copied message
+              )}
             </div>
           </div>
         ))}

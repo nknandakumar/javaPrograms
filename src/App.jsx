@@ -9,8 +9,8 @@ function App() {
      <BrowserRouter>
           <Nav/>
          <Routes>
-             <Route path="/" element={<JavaProgramList />} />
-             <Route path="/c" element={<CProgramList />} />
+             <Route path="/c" element={<JavaProgramList />} />
+             <Route path="/" element={<CProgramList />} />
              {/* Add more routes as needed */}
          </Routes>
      </BrowserRouter>

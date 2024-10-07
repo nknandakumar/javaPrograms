@@ -12,7 +12,7 @@ const JavaProgramList = () => {
 
   return (
     <div className="h-screen bg-gray-900 text-white p-6 flex flex-col">
-      <h1 className="text-3xl font-bold mb-6">Java Programs</h1>
+      <h1 className="text-3xl font-bold mb-6">JP</h1>
       <div className="flex flex-wrap justify-between">
         {javaPrograms.map((program) => (
           <div key={program.id} className="bg-gray-800 rounded-lg shadow-lg p-4 m-2 w-1/4">

@@ -6,10 +6,10 @@ const Nav = () => {
       <div className="flex justify-center mt-6 items-center">
     
         <div className="space-x-4">
-          <Link to="/" className="text-white text-2xl px-6 py-4 bg-black rounded-lg hover:text-blue-400 transition">
-            J
+          <Link to="/c" className="">
+            hi
           </Link>
-          <Link to="/c" className="text-white text-2xl px-6 py-4 bg-black rounded-lg hover:text-blue-400 transition">
+          <Link to="/" className="text-white text-2xl px-6 py-4 bg-black rounded-lg hover:text-blue-400 transition">
             C
           </Link>
         </div>
