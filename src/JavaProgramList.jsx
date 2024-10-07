@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { javaPrograms } from "./constants/index"; // Import the array
 
 const JavaProgramList = () => {
@@ -11,23 +11,27 @@ const JavaProgramList = () => {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Java Programs</h1>
-      <ul className="list-disc">
+    <div className="h-screen bg-gray-900 text-white p-6 flex flex-col">
+      <h1 className="text-3xl font-bold mb-6">Java Programs</h1>
+      <div className="flex flex-wrap justify-between">
         {javaPrograms.map((program) => (
-          <li key={program.id} className="mb-2">
+          <div key={program.id} className="bg-gray-800 rounded-lg shadow-lg p-4 m-2 w-1/4">
             <div className="flex justify-between items-center">
-              <span>{program.name}</span>
+              <span className="text-xl font-mono">{program.name}</span>
               <button
                 onClick={() => handleCopy(program.code, program.id)}
-                className="bg-blue-500 text-white px-4 py-2 rounded"
+                className={`px-4 py-2 rounded-lg transition duration-200 ${
+                  copied === program.id
+                    ? "bg-green-600 hover:bg-green-700"
+                    : "bg-blue-600 hover:bg-blue-700"
+                }`}
               >
                 {copied === program.id ? "Copied!" : "Copy"}
               </button>
             </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

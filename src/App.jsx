@@ -1,14 +1,19 @@
-
+import { BrowserRouter , Routes ,Route } from "react-router-dom";
 import JavaProgramList from "./JavaProgramList";
+import CProgramList from "./Cprograms";
+import Nav from "./Nav";
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <JavaProgramList />
-      </header>
-    </div>
+     <BrowserRouter>
+          <Nav/>
+         <Routes>
+             <Route path="/" element={<JavaProgramList />} />
+             <Route path="/c" element={<CProgramList />} />
+             {/* Add more routes as needed */}
+         </Routes>
+     </BrowserRouter>
   );
 }
 

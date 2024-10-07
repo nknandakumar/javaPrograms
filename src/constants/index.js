@@ -1,7 +1,7 @@
 export const javaPrograms = [
     {
       id: 1,
-      name: "Hello World ..",
+      name: "Prog 1",
       code: `import java.io.*;
 
 class Jpro1 {
@@ -35,7 +35,7 @@ class Jpro1 {
     },
     {
       id: 2,
-      name: "Factorial Program",
+      name: "Prog 2",
       code: `
          import java.io.*;
 
@@ -69,7 +69,7 @@ class mulDiv extends JAddSub{
     },
     {
         id: 3,
-        name: "Program 3",
+        name: "Prog3",
         code: `
          import java.io.* ;
            class Jprog3 {
@@ -98,7 +98,7 @@ class mulDiv extends JAddSub{
       },
       {
         id: 4,
-        name: "Program 4",
+        name: "Prog4",
         code: `
            import java.io.*;
 
@@ -154,7 +154,7 @@ class student {
       },
       {
         id: 5,
-        name: "Program 5",
+        name: "Prog6",
         code: `
              import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -213,7 +213,7 @@ class Jprog6 {
       },
       {
         id: 6,
-        name: "Program 6",
+        name: "Part-B P4",
         code: `
              import java.awt.*;
 import java.awt.event.*;
@@ -255,7 +255,7 @@ class JprogB4 {
       },
       {
         id: 7,
-        name: "Program 7 pb6 key",
+        name: "P=B Program6 keyListener",
         code: `
                import java.awt.*;
 import java.applet.*;
@@ -312,7 +312,7 @@ public class pb6 extends Applet implements KeyListener {
       },
       {
         id: 8,
-        name: "Program 8 pb8 ",
+        name: " P-b Prog8 ",
         code: `
                  import java.awt.*;
 class pb8{
