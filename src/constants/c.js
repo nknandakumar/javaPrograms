@@ -1,7 +1,7 @@
 export const Cprograms = [
     {
       id: 1,
-      name: " GCD P1",
+      name: " BOX-1",
       code: `
    #include <stdio.h>
    #include<conio.h>
@@ -27,7 +27,7 @@ void main(){
     },
     {
       id: 2,
-      name: "Pascal Triangle P2",
+      name: "BOX-2",
       code: `
  #include <stdio.h>
 
@@ -69,7 +69,7 @@ long factorial(int n) {
     },
     {
       id: 3,
-      name: " Fibonacchi P3",
+      name: " BOX-3",
       code: `  
  #include <stdio.h>
  #include<conio.h>
@@ -97,7 +97,7 @@ void main(){
     },
     {
       id: 4,
-      name: " TowerOfHanoi P4",
+      name: "BOX-4",
       code: `
          
 #include<stdio.h>
@@ -125,7 +125,7 @@ void main(){
     },
     {
       id: 5,
-      name: "DynamicArrayToFind,S&L,Num P5",
+      name: "BOX-5",
       code: `
 #include <stdio.h>
 #include <stdlib.h>
@@ -175,7 +175,7 @@ int main() {
     },
     {
       id: 6,
-      name: " ArrangingCity P6",
+      name: "BOX-6",
       code: `
 #include <stdio.h>
 #include<conio.h>
@@ -211,7 +211,7 @@ void main(){
     },
     {
       id: 7,
-      name: "SelectionSort P7",
+      name: "BOX-7",
       code: `
 #include<stdio.h>
 #include<conio.h>
@@ -245,7 +245,7 @@ void main(){
     },
     {
       id: 8,
-      name: " INSERTION P8",
+      name: "BOX-8",
       code: `
 #include <stdio.h>
 #include<conio.h>
@@ -285,7 +285,77 @@ void  main() {
     },
     {
       id: 9,
-      name: "MERGE_SORT PB-P1",
+      name: "1BOX-9",
+      code: `
+#include <stdio.h>
+
+int partition(int a[], int low, int high) {
+    int i, j, key, temp;
+    key = a[low];
+    i = low + 1;
+    j = high;
+
+    while (1) {
+	while (i <= high && a[i] <= key)
+	    i++;
+	while (j >= low && a[j] > key)
+	    j--;
+
+	if (i < j) {
+
+	    temp = a[i];
+	    a[i] = a[j];
+	    a[j] = temp;
+	} else {
+
+	    temp = a[low];
+	    a[low] = a[j];
+	    a[j] = temp;
+	    return j;
+	}
+    }
+}
+
+void quick_sort(int a[], int low, int high) {
+    int j;
+    if (low < high) {
+	j = partition(a, low, high);
+	quick_sort(a, low, j - 1);
+	quick_sort(a, j + 1, high);
+    }
+}
+
+int main() {
+    int n, i, a[20];
+    clrscr();
+    printf("Enter the number of elements (max 20): ");
+    scanf("%d", &n);
+
+
+
+
+    printf("Enter the values:\n");
+    for (i = 0; i < n; i++) {
+	scanf("%d", &a[i]);
+    }
+
+    quick_sort(a, 0, n - 1);
+
+    printf("Sorted Elements are:\n");
+    for (i = 0; i < n; i++) {
+	printf("%d ", a[i]);
+    }
+    printf("\n");
+    getch();
+    return 0;
+}
+
+      
+      `
+    },
+    {
+      id: 10,
+      name: "BOX-10",
       code: `
 #include <stdio.h>
 
@@ -349,28 +419,344 @@ int main() {
       `
     },
     {
-      id: 10,
-      name: "Program 10",
-      code: ``
-    },
-    {
       id: 11,
-      name: "Program 11",
-      code: ``
+      name: "BOX-11🔍",
+      code: `
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+void bubble_sort(int a[], int n);
+int search(int key, int a[], int n, int *pos);
+
+int main() {
+    int i, n, ch, pos, a[27], key;
+    clrscr();
+    printf("1. Search an element using Linear Search \n");
+    printf("2. Search an element using Binary Search \n");
+    scanf("%d", &ch);
+
+    switch(ch) {
+	case 1:
+	    printf("Enter the number of elements to be inserted: ");
+	    scanf("%d", &n);
+	    printf("Enter the elements: \n");
+	    for(i = 0; i < n; i++)
+		scanf("%d", &a[i]);
+
+	    printf("Enter the element to be searched: ");
+	    scanf("%d", &key);
+	    for(i = 0; i < n; i++) {
+		if(a[i] == key) {
+		    printf("Element found at position %d\n", i + 1);
+		    getch();
+		    return 0;
+		}
+	    }
+	    printf("Element not found\n");
+	    break;
+
+	case 2:
+	    printf("Enter the number of elements: ");
+	    scanf("%d", &n);
+	    printf("Enter the elements: \n");
+	    for(i = 0; i < n; i++)
+		scanf("%d", &a[i]);
+
+	    bubble_sort(a, n);
+	    printf("Sorted elements: ");
+	    for(i = 0; i < n; i++)
+		printf("%d ", a[i]);
+	    printf("\n");
+
+	    printf("Enter the element to be searched: ");
+	    scanf("%d", &key);
+	    search(key, a, n, &pos);
+	    if (pos == -1) {
+		printf("Item is not found\n");
+	    } else {
+		printf("Item is found at position: %d\n", pos + 1);
+	    }
+	    break;
+
+	default:
+	    printf("Invalid choice!\n");
+    }
+
+    getch();
+    return 0;
+}
+
+void bubble_sort(int a[], int n) {
+    int temp, i, j;
+    for (i = 0; i < n - 1; i++) {
+	for (j = 0; j < n - i - 1; j++) {
+	    if (a[j] > a[j + 1]) {
+		temp = a[j];
+		a[j] = a[j + 1];
+		a[j + 1] = temp;
+	    }
+	}
+    }
+}
+
+int search(int key, int a[], int n, int *pos) {
+    int mid, high, low;
+    low = 0;
+    high = n - 1;
+    *pos = -1;  // Initialize position to -1
+
+    while (low <= high) {
+	mid = (low + high) / 2;
+	if (key == a[mid]) {
+	    *pos = mid;
+	    return 0;
+	}
+	if (key < a[mid]) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
+    }
+    return 0;
+}
+
+      `
     },
+  
     {
       id: 12,
-      name: "Program 12",
-      code: ``
+      name: "SBOX-12",
+      code: `
+#include<stdio.h>
+#include<conio.h>
+#include<process.h>
+#define size_stack 5
+
+void  push(int item ,int *top,int s[]){
+  if(*top == size_stack -1){
+    printf("stack Overflow");
+    return ;
+    }
+    *top = *top+1;
+    s[*top] = item ;
+}
+
+int pop(int *top,int s[]){
+  int item_delete ;
+  if(*top == -1){
+    return 0 ;
+  }
+  item_delete = s[(*top)--];
+  return item_delete ;
+}
+
+void display(int top,int s[] ){
+  int i ;
+  if(top == -1){
+    printf("Stack is empty \n");
+    return ;
+  }
+  printf("Values of Stack are : \n");
+  for(i=0;i<=top;i++){
+   printf("%d \n ",s[i]);
+  }
+}
+
+void main(){
+ int top,s[51],item,item_delete,ch ;
+ top= -1;
+ clrscr();
+ for(;;){
+ printf("1.PUSH \n 2.POP \n 3.DISPLAY \n 4.EXIT \n ");
+ scanf("%d",&ch);
+
+ switch(ch){
+  case 1 :
+	  printf("Enter the item to be inserted : ");
+	  scanf("%d",&item);
+	  push(item,&top,s);
+	  break ;
+   case 2 :
+	   item_delete = pop(&top,s);
+	   if(item_delete == 0){
+	     printf("stack is underFlow \n");
+	   }else{
+	     printf("item Delete = %d\n ",item_delete);
+	   }
+	   break ;
+  case 3 :
+	  display(top,s);
+	  break ;
+  case 4 :
+	 exit(0) ;
+	 default :
+		   printf("Invalid Choice");
+		   break;
+ }
+}
+}
+
+
+      `
     },
     {
       id: 13,
-      name: "Program 13",
-      code: ``
+      name: "BOX-13",
+      code: `
+        #include <stdio.h>
+#include <string.h>
+
+int f(char sym) {
+    switch (sym) {
+        case '+':
+        case '-':
+            return 2;
+        case '*':
+        case '/':
+            return 4;
+        case '^':
+        case '$':
+            return 5;
+        case '(':
+            return 0;
+        case '#':
+            return -1;
+        default:
+            return 8;
+    }
+}
+
+int g(char sym) {
+    switch (sym) {
+        case '+':
+        case '-':
+            return 1;
+        case '*':
+        case '/':
+            return 3;
+        case '^':
+        case '$':
+            return 6;
+        case '(':
+            return 9;
+        case ')':
+            return 0;
+        default:
+            return 7;
+    }
+}
+
+void infix_postfix(char infix[], char postfix[]) {
+    int i, j = 0, top = -1;
+    char sym, s[20];
+    s[++top] = '#';
+
+    for (i = 0; i < strlen(infix); i++) {
+        sym = infix[i];
+
+        while (f(s[top]) > g(sym)) {
+            postfix[j++] = s[top--];
+        }
+        if (f(s[top]) != g(sym)) {
+            s[++top] = sym;
+        } else {
+            top--;
+        }
+    }
+
+    while (s[top] != '#') {
+        postfix[j++] = s[top--];
+    }
+    postfix[j] = '\0';
+}
+
+int main() {
+    char infix[100], postfix[100];
+    clrscr();
+    printf("Enter the valid infix expression: ");
+    scanf("%s", infix);
+    infix_postfix(infix, postfix);
+    printf("Postfix expression is: ");
+    printf("%s\n", postfix);
+    getch();
+    return 0;
+}
+
+    }
+
+      `
     },
     {
       id: 14,
-      name: "Program 14",
-      code: ``
+      name: "BOX-14",
+      code: `
+ #include<stdio.h>
+#include<conio.h>
+#include<process.h>
+#define que_size 5
+
+void insert_rear(int item,int *r,int q[]){
+ if(*r == que_size -1){
+   printf("Queue is overFlow");
+   return ;
+ }
+ q[++(*r)] = item ;
+}
+
+void delete_front(int q[], int *f,int * r ){
+  if(*f>*r){
+    printf("queue is overFlow ");
+    return ;
+  }
+  printf("Deleted Queue : %d ",q[(*f)++]);
+  if(*f>*r){
+    *f = 0 ;
+    *r =-1;
+  }
+}
+
+void display(int q[],int f , int r){
+int i;
+ if(f>r){
+    printf("Queue is Empty \n");
+    return ;
+ }
+ printf("items in Queue : \n");
+ for(i=f;i<r;i++){
+   printf("\n %d \n ",q[i]);
+ }
+}
+
+void main(){
+ int f,r,q[56],item,ch;
+ f=0;
+ r=-1;
+
+ clrscr();
+ for(;;){
+  printf("\n 1.INSET \n 2.DELETE \n 3.DISPLAY \n 4.EXIT \n");
+  scanf("%d",&ch);
+  switch(ch){
+  case 1 :
+	 printf("Enter the item to be inserted : ");
+	 scanf("%d",&item);
+	 insert_rear(item,&r,q);
+	 break ;
+  case 2 :
+	 delete_front(q,&f,&r);
+	 break ;
+  case 3 :
+	 display(q,f,r);
+	 break ;
+  case 4 :
+	  exit(0);
+	  default :
+		   printf("Entered the Invalid Choice!!");
+  }
+ }
+}
+         
+      `
     }
   ];
